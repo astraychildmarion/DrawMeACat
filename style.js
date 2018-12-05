@@ -11,31 +11,33 @@ let lastY = 0;
 let hue = 0;
 let reverse = true;
 let topic = ['elephant', 'duck', 'lipstick', 'cup', 'fork', 'swan', 'grape', 'bicycle', 'camera', 'backpack', 'butterfly','telephone'];
-let time = 10;
+let time;
 
-function countDown(){
-  if(time <= -1){
-    document.getElementById('countDownNotice').innerHTML = 'Draw again?'
+function countDown(i){
+  if(i <= -1){
+    document.getElementById('draw').classList.add('drawFinish');
+    document.getElementById('countDownNotice').innerHTML = 'Draw again?';
     document.getElementById('startBtn').classList.remove('disable');
     document.getElementById('startBtn').disabled = false;
     return;
   }else{
-    document.getElementById('countDownNotice').innerHTML = 'Counting...'
-    document.getElementById('countDownNum').innerHTML = time;
+    document.getElementById('countDownNotice').innerHTML = 'Counting...';
+    document.getElementById('countDownNum').innerHTML = i;
     setTimeout(() => {
-      countDown();
+      countDown(i);
     }, 1000);
   }
-  time--;
+  i--;
 }
 
-function randomTopic () {
+function randomTopic (time) {
   let topicCount = topic.length;
   let randomNum = Math.floor(Math.random() * topicCount);
+  document.getElementById('draw').classList.remove('drawFinish');
   document.getElementById('startBtn').classList.add('disable');
   document.getElementById('startBtn').disabled = true;
   document.getElementById('topicPrint').innerHTML = topic[randomNum];
-  countDown();
+  countDown(time);
 }
 
 function setColor (color) {
@@ -73,6 +75,7 @@ function draw(e) {
 }
 
 function cleanCanvas() {
+  document.getElementById('draw').classList.remove('drawFinish');
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 }
 

@@ -5,26 +5,28 @@ html(lang="en")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
     meta(http-equiv="X-UA-Compatible", content="ie=edge")
     link(href="style.css", rel="stylesheet")
+    link(href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css", rel="stylesheet")
     title Draw me a cat
   body
     .container
       h2 Draw me a cat
-      h3 or whatever you want...
-      .card
-        .card-title Choose a color
-        button(onclick="setColor('#BADA55')") #BADA55
-        button(onclick="setColor('#CCCCCC')") Gray
-        button(onclick="setColor('#5F4B8B')") Ultra Violet
-        button(onclick="setColor('#000000')") Basic Black
-      .card
-        .hal1
-          .card-title Draw me a 
-            b#topicPrint
-            |&nbspPlease !
-          button#startBtn(onclick="randomTopic()") Start to draw
-        .half1
-          .card-title#countDownNotice Count Down Start!
-          #countDownNum 
-      canvas#draw(width="400" height="400" style="border:1px solid #000")
-      button(onclick="cleanCanvas()") Clean canvas
+      h4 or whatever you want...
+      .box
+        p Choose a color
+        .btn-group
+          button.btn.btn-info(onclick="setColor('#BADA55')") #BADA55
+          button.btn.btn-info(onclick="setColor('#CCCCCC')") Gray
+          button.btn.btn-info(onclick="setColor('#5F4B8B')") Ultra Violet
+          button.btn.btn-info(onclick="setColor('#000000')") Basic Black
+      .box
+        .row
+          .col-xs-12.col-sm-6
+            p Draw me a 
+              b#topicPrint
+              button.btn.btn-primary#startBtn(onclick="randomTopic(10)") Start to draw
+          .col-xs-12.col-sm-6
+            h5#countDownNotice Are you ready ???
+            #countDownNum
+      canvas#draw(width="400" height="400")
+      button.button.btn-dark(onclick="cleanCanvas()") Clean canvas
     script(src="style.js")

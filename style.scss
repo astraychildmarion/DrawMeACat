@@ -1,58 +1,49 @@
-.container{
-  padding: 0 80px; 
-}
-.card{
-  box-sizing: border-box;
-  width: 400px;
-  padding: 10px;
-  margin: 20px 0;
-  border: 2px solid #ccc;
-  border-radius: 20px;
-  display: flex;
-  flex-wrap: wrap;
+.box {
+  margin: 20px auto;
+  padding: 20px 10px;
   position: relative;
-  min-height: 100px;
-  .card-title{
-    width: 100%;
-    padding: 10px;
-    margin: 0;
-    text-align: center;
-    line-break: break-all;
-  }
-  .half1{
-    flex: 1;
-    // text-align: center;
-  }
-  .half2 {
-    flex: 2;
-    // text-align: center;
-  }
+  border-top: 1px dashed #ccc;
 }
-button{
+
+button {
   margin: 0 10px 0 0;
   padding: 5px 8px;
   border-radius: 5px;
-  &.disable{
+
+  &.disable {
     cursor: not-allowed;
   }
 }
-#startBtn{
-  position: absolute;
-  bottom: 20px;
-  left: 10%;
+
+#startBtn {
+  display: block;
+  margin-top: 20px;
 }
-#topicPrint{
+
+#topicPrint {
   min-width: 10px;
   width: auto;
   display: inline-block;
-  font-size: 18px;
+  font-size: 22px;
   color: fuchsia;
 }
-#countDownNum{
-  width: 100%;
-  min-height: 50px;
-  color: red;
+
+#countDownNum {
+  padding: 20px;
+  width: 100px;
+  height: 100px;
+  // min-height: 50px;
+  color: yellow;
   font-size: 36px;
   margin: 20px 0;
+  background-color: Black;
+  border-radius: 50%;
   text-align: center;
+}
+
+#draw {
+  border: 1px solid #000;
+  &.drawFinish {
+    background-color: red;
+  }
 }

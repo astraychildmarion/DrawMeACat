@@ -5,31 +5,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
     <link href="style.css" rel="stylesheet"/>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet"/>
     <title>Draw me a cat</title>
   </head>
   <body>
     <div class="container">
       <h2>Draw me a cat</h2>
-      <h3>or whatever you want...</h3>
-      <div class="card">
-        <div class="card-title">Choose a color</div>
-        <button onclick="setColor('#BADA55')">#BADA55</button>
-        <button onclick="setColor('#CCCCCC')">Gray</button>
-        <button onclick="setColor('#5F4B8B')">Ultra Violet</button>
-        <button onclick="setColor('#000000')">Basic Black</button>
-      </div>
-      <div class="card">
-        <div class="hal1">
-          <div class="card-title">Draw me a <b id="topicPrint"></b>&nbspPlease !</div>
-          <button id="startBtn" onclick="randomTopic()">Start to draw</button>
-        </div>
-        <div class="half1">
-          <div class="card-title" id="countDownNotice">Count Down Start!</div>
-          <div id="countDownNum"> </div>
+      <h4>or whatever you want...</h4>
+      <div class="box">
+        <p>Choose a color</p>
+        <div class="btn-group">
+          <button class="btn btn-info" onclick="setColor('#BADA55')">#BADA55</button>
+          <button class="btn btn-info" onclick="setColor('#CCCCCC')">Gray</button>
+          <button class="btn btn-info" onclick="setColor('#5F4B8B')">Ultra Violet</button>
+          <button class="btn btn-info" onclick="setColor('#000000')">Basic Black</button>
         </div>
       </div>
-      <canvas id="draw" width="400" height="400" style="border:1px solid #000"></canvas>
-      <button onclick="cleanCanvas()">Clean canvas</button>
+      <div class="box">
+        <div class="row">
+          <div class="col-xs-12 col-sm-6">
+            <p>Draw me a <b id="topicPrint"></b>
+              <button class="btn btn-primary" id="startBtn" onclick="randomTopic(10)">Start to draw</button>
+            </p>
+          </div>
+          <div class="col-xs-12 col-sm-6">
+            <h5 id="countDownNotice">Are you ready ???</h5>
+            <div id="countDownNum"></div>
+          </div>
+        </div>
+      </div>
+      <canvas id="draw" width="400" height="400"></canvas>
+      <button class="button btn-dark" onclick="cleanCanvas()">Clean canvas</button>
     </div>
     <script src="style.js"></script>
   </body>
