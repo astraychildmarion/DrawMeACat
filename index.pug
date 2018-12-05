@@ -4,56 +4,27 @@ html(lang="en")
     meta(charset="UTF-8")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
     meta(http-equiv="X-UA-Compatible", content="ie=edge")
+    link(href="style.css", rel="stylesheet")
     title Draw me a cat
   body
-    canvas#draw(width="800" height="800" style="border:1px solid #000")
-    
-    script.
-      const canvas = document.querySelector('#draw');
-      const ctx = canvas.getContext('2d');
-      ctx.strokeStyle = '#BADA55';
-      ctx.lineJoin = 'round';
-      ctx.lineCap = 'round';
-      ctx.lineWidth = '10'
-      let isDraw = false;
-      let lastX = 0;
-      let lastY = 0;
-      let hue = 0;
-      let reverse = true;
-
-      function draw(e){
-        if (!isDraw) return;
-        //- console.log(e);
-        ctx.strokeStyle = `hsl(${hue}, 100%, 50%)`;
-        //- ctx.lineWidth = hue ;
-        ctx.beginPath();
-        ctx.moveTo( lastX, lastY);
-        ctx.lineTo( e.offsetX, e.offsetY)
-        ctx.stroke();
-        [lastX, lastY] = [e.offsetX, e.offsetY];
-        //- 以下程式碼的進階寫法
-        //- lastX = e.offsetX;
-        //- lastY = e.offsetY;
-        hue++
-        if ( hue >= 360 ) {
-          hue = 0;
-        }
-
-        if ( ctx.lineWidth >= 30 || ctx.lineWidth <= 1 ) {
-          reverse = !reverse;
-        }
-        if ( reverse ) {
-          ctx.lineWidth++;
-        } else {
-          ctx.lineWidth--;
-        }
-        console.log(ctx.lineWidth);
-      }
-
-      canvas.addEventListener( 'mousedown' , (e) => {
-        isDraw = true;
-        [lastX, lastY] = [e.offsetX, e.offsetY];
-      });
-      canvas.addEventListener( 'mousemove' , draw );
-      canvas.addEventListener( 'mouseup' , () => isDraw = false );
-      canvas.addEventListener( 'mouseout' , () => isDraw = false );
+    .container
+      h2 Draw me a cat
+      h3 or whatever you want...
+      .card
+        .card-title Choose a color
+        button(onclick="setColor('#BADA55')") #BADA55
+        button(onclick="setColor('#CCCCCC')") Gray
+        button(onclick="setColor('#5F4B8B')") Ultra Violet
+        button(onclick="setColor('#000000')") Basic Black
+      .card
+        .hal1
+          .card-title Draw me a 
+            b#topicPrint
+            |&nbspPlease !
+          button#startBtn(onclick="randomTopic()") Start to draw
+        .half1
+          .card-title#countDownNotice Count Down Start!
+          #countDownNum 
+      canvas#draw(width="400" height="400" style="border:1px solid #000")
+      button(onclick="cleanCanvas()") Clean canvas
+    script(src="style.js")
